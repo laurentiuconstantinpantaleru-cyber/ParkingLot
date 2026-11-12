@@ -4,6 +4,7 @@
 
 <t:pageTemplate pageTitle="Cars">
     <h1>Cars</h1>
+    <p>Număr mașini: ${cars.size()}</p>
     <div class="container text-center">
         <c:forEach var="car" items="${cars}">
             <div class="row">

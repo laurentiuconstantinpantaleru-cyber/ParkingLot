@@ -28,7 +28,7 @@ public List<CarDto> findAllCars(){
         throw new EJBException(ex);
                           }
 
-        }
+        }   
 
     private List<CarDto> copyCarsToDto(List<Car> cars) {
         List<CarDto> carDtos = new ArrayList<>();
