@@ -6,14 +6,13 @@ public class CarDto {
     String parkingSpot;
     String ownerName;
 
-    public CarDto(String licensePlate, String parkingSpot, Long id, String ownerName) {
+
+
+    public CarDto(Long id, String licensePlate, String parkingSpot, String username) {
         this.licensePlate = licensePlate;
         this.parkingSpot = parkingSpot;
         this.id = id;
         this.ownerName = ownerName;
-    }
-
-    public CarDto(Long id, String licensePlate, String parkingSpot, String username) {
     }
 
     public String getParkingSpot() {
