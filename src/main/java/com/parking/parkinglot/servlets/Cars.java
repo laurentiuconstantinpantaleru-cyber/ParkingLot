@@ -1,5 +1,5 @@
 package com.parking.parkinglot.servlets;
-
+import jakarta.annotation.security.DeclareRoles;
 import com.parking.parkinglot.common.CarDto;
 import com.parking.parkinglot.ejb.CarsBean;
 import jakarta.inject.Inject;
@@ -10,7 +10,11 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import jakarta.servlet.annotation.*;
 
+@DeclareRoles({"READ_CARS", "WRITE_CARS"})
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"READ_CARS"}),
+        httpMethodConstraints = {@HttpMethodConstraint(value = "POST", rolesAllowed = {"WRITE_CARS"})})
 
 @WebServlet(name = "Cars", value = "/Cars")
 public class Cars extends HttpServlet {
@@ -37,4 +41,5 @@ public class Cars extends HttpServlet {
         }
         response.sendRedirect(request.getContextPath() + "/Cars");
     }
+
 }

@@ -1,5 +1,5 @@
 package com.parking.parkinglot.servlets;
-
+import jakarta.annotation.security.DeclareRoles;
 import com.parking.parkinglot.common.UserDto;
 import com.parking.parkinglot.ejb.CarsBean;
 import com.parking.parkinglot.ejb.UsersBean;
@@ -9,9 +9,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_CARS"}))
 
 @WebServlet(name = "AddCar", value = "/AddCar")
 public class AddCar extends HttpServlet {
